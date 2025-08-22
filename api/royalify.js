@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "command-r",  // works as per your Colab test
+        model: "command-a-03-2025",  // works as per your Colab test
         message: `Rewrite the following into short, elegant modern English. 
 Only return the rewritten sentence, do not explain or add commentary:\n\n${text}`,
       }),
