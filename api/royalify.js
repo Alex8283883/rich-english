@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "command-a-03-2025", // or "command-r-plus" if you have access
+        model: "command-r7b-12-2024", // or "command-r-plus" if you have access
         prompt: `Rewrite this into royal, archaic English:\n\n"${text}"`,
         max_tokens: 60,
         temperature: 0.7,
