@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "command-r",  // works as per your Colab test
-        message: `Rewrite this into royal, archaic English:\n\n"${text}"`,
+        message: `Rewrite this into short royal/archaic English (max one sentence, no long paragraphs):\n\n"${text}"`,
       }),
     });
 
