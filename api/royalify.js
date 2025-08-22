@@ -17,7 +17,10 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "command-r",  // works as per your Colab test
-        message: `Rewrite this into short, elegant, rich English (formal tone, modern vocabulary, one sentence only):\n\n"${text}"`,
+        message: `Rewrite the following into short, elegant modern English. 
+Only return the rewritten sentence, do not explain or add commentary:\n\n"${text}"`,
+max_tokens: 40,
+temperature: 0.6
       }),
     });
 
