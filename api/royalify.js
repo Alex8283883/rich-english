@@ -9,23 +9,28 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Call Cohere API with GENERATION model
-    const response = await fetch("https://api.cohere.ai/v1/generate", {
+    // Use Cohere Chat endpoint
+    const response = await fetch("https://api.cohere.ai/v1/chat", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${process.env.COHERE_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "command-r7b-12-2024", // or "command-r-plus" if you have access
-        prompt: `Rewrite this into royal, archaic English:\n\n"${text}"`,
-        max_tokens: 60,
-        temperature: 0.7,
+        model: "command-r", // free-tier friendly
+        messages: [
+          {
+            role: "user",
+            content: `Rewrite this into royal, archaic English:\n\n"${text}"`,
+          },
+        ],
       }),
     });
 
     const data = await response.json();
-    const royalText = data.generations?.[0]?.text?.trim() || text;
+
+    // Cohere chat returns plain text at top level
+    const royalText = data.text?.trim() || text;
 
     res.status(200).json({ royal_text: royalText });
   } catch (err) {
