@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "command-xsmall-nightly", // free fast model
+        model: "embed-english-v3.0", // free fast model
         prompt: `Rewrite this into royal/archaic English:\n\n"${text}"`,
         max_tokens: 60,
         temperature: 0.7
